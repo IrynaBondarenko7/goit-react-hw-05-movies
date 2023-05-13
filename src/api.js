@@ -21,3 +21,17 @@ export const fetchCast = async id => {
   );
   return response.data;
 };
+
+export const fetchReviews = async id => {
+  const response = await axios.get(
+    `3/movie/${id}/reviews?api_key=${API_KEY}&language=en-US&page=1`
+  );
+  return response.data;
+};
+
+export const fetchQueryForDetails = async query => {
+  const response = await axios.get(
+    `3/search/movie?api_key=${API_KEY}&query=${query}`
+  );
+  return response.data;
+};
