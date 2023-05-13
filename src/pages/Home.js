@@ -28,6 +28,7 @@ const Home = () => {
   return (
     <div>
       {loading && <div>Loading...</div>}
+      <h2>Tranding today</h2>
       <ul>
         {popularMovies.map(movie => {
           return (
