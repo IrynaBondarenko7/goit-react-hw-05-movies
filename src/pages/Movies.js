@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { useLocation, useSearchParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { BsSearch } from 'react-icons/bs';
-
+import { PropTypes } from 'prop-types';
 const ERROR_MSG = 'Something went wrong, try again';
 
 const Movies = () => {
@@ -67,26 +67,6 @@ const Movies = () => {
 };
 export default Movies;
 
-// useEffect(() => {
-//   if (searcValue === '') {
-//     return;
-//   }
-
-//   const controller = new AbortController();
-//   async function searchMovies() {
-//     try {
-//       setLoading(true);
-//       const { results } = await fetchQueryForDetails(query, controller);
-//       // console.log(results);
-//       setsearchMovies(results);
-//     } catch (error) {
-//       setError(ERROR_MSG);
-//     } finally {
-//       setLoading(false);
-//     }
-//   }
-//   searchMovies();
-//   return () => {
-//     controller.abort();
-//   };
-// }, [query, searcValue]);
+SearchInput.propTypes = {
+  setSearchInputValue: PropTypes.func.isRequired,
+};

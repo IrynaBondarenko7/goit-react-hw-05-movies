@@ -2,6 +2,7 @@ import { fetchPopularMovies } from 'api';
 import { PopularMovieItem } from 'components/PopularMovieItem';
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import { PropTypes } from 'prop-types';
 
 const ERROR_MSG = 'Something went wrong, try again';
 
@@ -45,3 +46,8 @@ const Home = () => {
   );
 };
 export default Home;
+
+PopularMovieItem.propTypes = {
+  movie: PropTypes.object,
+  location: PropTypes.object,
+};

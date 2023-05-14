@@ -29,7 +29,6 @@ const MovieDetails = () => {
     }
     getMovie();
   }, [movieId]);
-  let userScore = Math.round(movie.vote_average * 10);
 
   return (
     <div>
@@ -43,14 +42,14 @@ const MovieDetails = () => {
                 src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
                 alt={`${movie.title}`}
                 width={300}
-                height={400}
+                height={350}
               />
             ) : (
               <img
                 src={`https://www.shutterstock.com/image-illustration/retro-movie-art-drawing-simple-260nw-1853540983.jpg`}
                 alt={`${movie.title}`}
                 width={300}
-                height={400}
+                height={350}
               />
             )}
           </div>
@@ -61,7 +60,7 @@ const MovieDetails = () => {
                 movie.name ||
                 movie.original_name}
             </h2>
-            <p>User score : {userScore}%</p>
+            <p>User score : {Math.round(movie.vote_average * 10)}%</p>
             <p>Overview</p>
             <p>{movie.overview}</p>
             <p>Generes</p>
