@@ -1,8 +1,10 @@
 import { fetchPopularMovies } from 'api';
-import { PopularMovieItem } from 'components/PopularMovieItem';
+import { PopularMovieItem } from 'components/PopularMovieItem/PopularMovieItem';
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
+import { StyledHomeTitle } from 'components/Home/Title.styled';
+import { StyledSectionContainer } from 'components/SectionContainer.styled';
 
 const ERROR_MSG = 'Something went wrong, try again';
 
@@ -27,9 +29,9 @@ const Home = () => {
     getMovies();
   }, []);
   return (
-    <div>
+    <StyledSectionContainer>
       {loading && <div>Loading...</div>}
-      <h2>Tranding today</h2>
+      <StyledHomeTitle>Tranding today</StyledHomeTitle>
       <ul>
         {popularMovies.map(movie => {
           return (
@@ -42,7 +44,7 @@ const Home = () => {
         })}
       </ul>
       {error && <div>{error}</div>}
-    </div>
+    </StyledSectionContainer>
   );
 };
 export default Home;

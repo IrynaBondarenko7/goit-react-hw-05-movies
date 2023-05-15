@@ -5,6 +5,13 @@ import { useLocation, useSearchParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { BsSearch } from 'react-icons/bs';
 import { PropTypes } from 'prop-types';
+import { StyledSectionContainer } from 'components/SectionContainer.styled';
+import { StyledInputWrap } from 'components/SearchInput/InputWrap.styled';
+import { StyledButton } from 'components/SearchInput/Button.style';
+import { StyledIconWrap } from 'components/PopularMovieItem/IconWrap.styled';
+import { TbMovie } from 'react-icons/tb';
+import { StyledMovieItem } from 'components/MovieItem.styled';
+
 const ERROR_MSG = 'Something went wrong, try again';
 
 const Movies = () => {
@@ -42,27 +49,33 @@ const Movies = () => {
     setSearcValue(value);
   };
   return (
-    <div>
-      <SearchInput setSearchInputValue={setSearchInputValue} />
-      <button type="button" onClick={onSearchSubmit}>
-        <BsSearch />
-      </button>
+    <StyledSectionContainer>
+      <StyledInputWrap>
+        <SearchInput setSearchInputValue={setSearchInputValue} />
+        <StyledButton type="button" onClick={onSearchSubmit}>
+          <BsSearch color="#fff" />
+        </StyledButton>
+      </StyledInputWrap>
+
       {loading && <div>Loading...</div>}
       {searchMovies.length > 0 && (
         <ul>
           {searchMovies.map(movie => {
             return (
-              <li key={movie.id}>
+              <StyledMovieItem key={movie.id}>
+                <StyledIconWrap>
+                  <TbMovie color="#6E2C00" />
+                </StyledIconWrap>
                 <Link to={`/movies/${movie.id}`} state={{ from: location }}>
                   {movie.title}
                 </Link>
-              </li>
+              </StyledMovieItem>
             );
           })}
         </ul>
       )}
       {error && <div>{error}</div>}
-    </div>
+    </StyledSectionContainer>
   );
 };
 export default Movies;

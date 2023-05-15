@@ -4,7 +4,7 @@ export const SearchInput = ({ setSearchInputValue }) => {
   return (
     <StyledSearchInput
       type="text"
-      placeholder="search film"
+      placeholder="Search film"
       onChange={evt => {
         setSearchInputValue(evt.target.value);
       }}
